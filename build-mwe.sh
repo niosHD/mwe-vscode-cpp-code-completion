@@ -6,14 +6,14 @@ git submodule update --recursive --init
 mkdir -p _build_fmt
 cd _build_fmt
 cmake -DFMT_TEST=false ../fmt
-make
+cmake --build .
 
 # configure and build a simple test program
 cd ..
 mkdir -p _build_test
 cd _build_test
 cmake -DFMT_DIR=$(pwd)/../_build_fmt -DCMAKE_EXPORT_COMPILE_COMMANDS=true ../find-package-test/
-make
+cmake --build .
 
 # open the test program in vscode
 cd ..

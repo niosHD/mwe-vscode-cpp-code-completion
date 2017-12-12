@@ -15,7 +15,7 @@ Usage
 
 Problem (vscode 1.18.1, cpptools 0.14.4)
 ----------------------------------------
-Clang-based code completion does not work because `-isystem` is not processed correctly (despite [#156](https://github.com/Microsoft/vscode-cpptools/issues/156)).
+Clang-based code completion does not work because `-isystem` is not processed correctly (despite [#1156](https://github.com/Microsoft/vscode-cpptools/issues/1156)).
 
 The problem seems to be that `-isystem` is handled exactly like `-I` meaning that the parser is expecting arguments like `-I/path/to/directory` and `-isystem/path/to/directory`. For `-I` that works since cmake generates the arguments in this form. However, for `-isystem`, cmake is generating the entries in the compilation database as `-isystem /path/to/directory` (note the space between `-isystem` and the path) which is not understood by the cpptools.
 
